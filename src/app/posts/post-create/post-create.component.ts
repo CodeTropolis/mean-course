@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-post-create',
@@ -7,11 +8,12 @@ import { Component } from '@angular/core';
 })
 export class PostCreateComponent {
 
-  newPost = 'No content';
-  enteredValue = '';
+  enterdTitle = '';
+  enteredContent = '';
   
-  addPost(){
-    this.newPost = this.enteredValue;
+  addPost(form: NgForm){
+    if(form.invalid) return;
+    const post = {title: form.value.title, content: form.value.content}
   }
 
 }

@@ -1,9 +1,16 @@
 
 <mat-card>
-    <mat-form-field>
-        <textarea matInput rows=8 [(ngModel)]='enteredValue'></textarea>
-    </mat-form-field>
-    <button (click)="addPost()" mat-raised-button color="primary">Save Post</button>
+    <form (submit)="addPost(postForm)" #postForm="ngForm">
+        <mat-form-field>
+            <input matInput type="text" name="title" ngModel required minlength="3" #title="ngModel">
+            <mat-error *ngIf="title.invalid">Please enter a valid title</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput rows=8 name="content" ngModel required minlength="10" #content="ngModel"></textarea>
+            <mat-error *ngIf="content.invalid">Please enter content</mat-error>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary">Save Post</button>
+    </form>
 </mat-card>
 
 
