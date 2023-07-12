@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-// Handle CORS
+// Handle CORS. No path - for all routes.
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
