@@ -17,7 +17,7 @@ export class PostCreateComponent {
   
   addPost(form: NgForm){
     if(form.invalid) return;
-    const post: Post = {title: form.value.title, content: form.value.content};
+    const post: Post = {id:'', title: form.value.title, content: form.value.content};
     this.postService.addPosts(post);
     form.resetForm();
   }
