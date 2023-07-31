@@ -9,8 +9,10 @@ import { HttpClient } from '@angular/common/http';
 export class PostsService {
 
   private posts:Post[] =[];
-  // The Subject is private - can only call next() within this class.
+  // The Subject is private. an only call next() within this class.
   private postsUpdated = new Subject<Post[]>();
+
+  public posts$ = this.postsUpdated.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -29,8 +31,8 @@ export class PostsService {
 
   // Public function - returns read only.  
   // Post-list.component listens for this in it's ngOnInit()
-  getPostsUpdatedListener(){
-    return this.postsUpdated.asObservable();
-  }
+  // getPostsUpdatedListener(){
+  //   return this.postsUpdated.asObservable();
+  // }
 
 }

@@ -7,6 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Handle CORS. No path - for all routes.
+// Could instead use a CORS package.
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
