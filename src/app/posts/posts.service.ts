@@ -9,9 +9,11 @@ import { HttpClient } from '@angular/common/http';
 export class PostsService {
 
   private posts:Post[] =[];
-  // The Subject is private. an only call next() within this class.
+
+  // The Subject is private. Can only call next() within this class.
   private postsUpdated = new Subject<Post[]>();
 
+  // The public property that post-list.component will subscribe to.
   public posts$ = this.postsUpdated.asObservable();
 
   constructor(private http: HttpClient) { }
